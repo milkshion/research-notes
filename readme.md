@@ -14,4 +14,7 @@
 - 搭建了基于Git和GitHub的云端笔记工作流
   - 使用了 `VS Code` 编写 `Markdown` 笔记
   - 掌握Git基础命令 (`add/commit/push`)
+    - `git add` (放入暂存区)
+    - `git commit` (存档)
+    - `git push` (推送)
   - 成功将本地笔记推送至GitHub远程仓库
