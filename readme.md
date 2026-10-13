@@ -11,3 +11,7 @@
     - 移动并改名：`mv 旧名字 目标文件夹路径/新名字`
   - `echo`：写入内容（用法：`echo "内容" > 文件名`）
   - `cat`：查看全部内容
+- 搭建了基于Git和GitHub的云端笔记工作流
+  - 使用了 `VS Code` 编写 `Markdown` 笔记
+  - 掌握Git基础命令 (`add/commit/push`)
+  - 成功将本地笔记推送至GitHub远程仓库
