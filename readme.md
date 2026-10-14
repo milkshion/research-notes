@@ -36,3 +36,10 @@
   - `yy`：复制光标所在行
   - `p`：粘贴到光标下一行
   - `gg` / `G`：跳转到文件首行 / 尾行
+
+## Day 2
+
+### Docker基础
+  - `docker run hello-world` : 拉取并测试镜像
+  - `docker run -it ubuntu bash` : 创建并进入一个 Ubuntu 容器，环境与宿主机完全隔离
+  - `usermod -aG docker $USER` : 免 sudo 运行 docker
