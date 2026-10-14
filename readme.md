@@ -4,6 +4,10 @@
   - `mkdir`：创建一个文件夹（目录）
   - `cd`：进入一个文件夹
   - `touch`：创建空文件（或更新文件时间）
+  - `rm 文件名`：删除文件
+    - `rm -r 文件夹名`：删除文件夹（不会复原）
+    - `rm -i 文件名/文件夹名`：删除前会询问
+    - `rm -rf 文件夹名`：强制删除且不提示
   - `cp`：复制文件（用法：`cp 源文件 目标文件`）
   - `mv`：移动或重命名
     - 重命名：`mv 旧名字 新名字`
@@ -43,3 +47,15 @@
   - `docker run hello-world` : 拉取并测试镜像
   - `docker run -it ubuntu bash` : 创建并进入一个 Ubuntu 容器，环境与宿主机完全隔离
   - `usermod -aG docker $USER` : 免 sudo 运行 docker
+
+- Docker 数据卷与深度学习环境
+  - `-v 本地路径:容器路径`: 将本地目录挂载到容器内，实现数据持久化(防止容器删除后数据丢失)
+  - `nvidia-docker`：专为有 NVIDIA 显卡的服务器设计，本地 WSL 不用装，以后连服务器用。
+  - `-p 端口:端口`：端口映射，用于在本地浏览器查看服务器容器内的 TensorBoard/Jupyter。
+  - Dockerfile：`FROM` 基础镜像 + `RUN` 安装命令，用 `docker build -t 名字:标签 .` 构建。
+
+### 服务器连接与首个模型训练
+  - 成功连接实验室服务器 (SSH) 并创建个人目录，熟悉了服务器环境：无全局 python3，需使用 python3 -m venv ~ 创建独立虚拟环境
+  - 在虚拟环境里安装了 torch, torchvision, matplotlib
+  - 成功跑通 401_CNN.py，MNIST 手写数字识别准确率达到 97%
+  - 明白了虚拟环境隔离的重要性，坚决不在全局使用 sudo pip
