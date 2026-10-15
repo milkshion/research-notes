@@ -59,3 +59,10 @@
   - 在虚拟环境里安装了 torch, torchvision, matplotlib
   - 成功跑通 401_CNN.py，MNIST 手写数字识别准确率达到 97%
   - 明白了虚拟环境隔离的重要性，坚决不在全局使用 sudo pip
+
+## Day 3
+
+### 第一次训练
+  - 完成了"模型训练(401_CNN.py) -> 保存权重(.pth) -> 加载权重(check_401_error.py) -> 误差分析"的完整闭环
+  - 成功加载401训练好的模型并分析错题(error_sample_401.png)
+  - `MNIST`数据集用矩阵保存图片， `matplotlib`将这些数字矩阵渲染回人眼能看的图片
