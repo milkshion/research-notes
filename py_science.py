@@ -1,20 +1,36 @@
 import numpy as np
 import matplotlib.pyplot as plt
 
-x = np.linspace(0, 10, 100)
-y = np.sin(x)
-y2 = np.cos(x)
+# 生成 x 轴的数据（从 -6 到 6）
+x = np.linspace(-6, 6, 200)
 
-plt.plot(x, y, label='sin', color='blue', linestyle='-')
-plt.plot(x, y2, label='cos', color='red', linestyle='--')
+# 1. 计算 Sigmoid
+sigmoid = 1 / (1 + np.exp(-x))
 
-plt.title("Trigonometric Functions")
-plt.xlabel("X axis (Time/Steps)")   #加 X 轴标签
-plt.ylabel("Y axis (Value)")        #加 Y 轴标签
+# 2. 计算 ReLU
+relu = np.maximum(0, x)
 
-plt.grid(True, linestyle=':', alpha = 0.6)
-plt.legend(loc = 'upper right')
+# 开始画图
+plt.figure(figsize=(10, 5))
 
-plt.savefig("sine_wave_paper.png", dpi = 300)
-print("图像已保存")
+# 画 Sigmoid (蓝色)
+plt.plot(x, sigmoid, label='Sigmoid', color='blue', linewidth=2)
+
+# 画 ReLU (红色)
+plt.plot(x, relu, label='ReLU', color='red', linewidth=2)
+
+# 加坐标系辅助线
+plt.axhline(0, color='black', linewidth=0.8, linestyle='--')
+plt.axvline(0, color='black', linewidth=0.8, linestyle='--')
+
+# 加标签、图例、网格
+plt.title('Sigmoid vs ReLU Activation Functions')
+plt.xlabel('Input (x)')
+plt.ylabel('Output (y)')
+plt.legend()
+plt.grid(True, linestyle=':', alpha=0.6)
+
+# 保存图片（如果是本地电脑，也可以把下面这行换成 plt.show()）
+plt.savefig('activation_functions.png', dpi=300)
+print("图像已保存为 activation_functions.png")
 
