@@ -94,6 +94,6 @@
   - **更换 AdamW 后的对比**:
     - 加入了 权重衰减(防过拟合), 学习率调小了10倍以上.
     - 相比于 SGD , AdamW初期下降速率要快得多.
-  ![4](./py_images/classification_AdamW_step_30.png)
-  ![5](./py_images/classification_AdamW_step_86.png)
-  ![6](./py_images/classification_AdamW_step_88.png)
+  ![训练过程4](./py_images/classification_step_AdamW_30.png)
+  ![训练过程5](./py_images/classification_step_AdamW_86.png)
+  ![训练过程6](./py_images/classification_step_AdamW_88.png)
