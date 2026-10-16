@@ -68,7 +68,7 @@
   - `MNIST`数据集用矩阵保存图片， `matplotlib`将这些数字矩阵渲染回人眼能看的图片
 
   ## 成功生成并解读了t-SNE特征可视化图(tsne_result.png)
-  ![t-SNE图](./images/tsne_result.png)
+  ![t-SNE图](./py_images/tsne_result.png)
     - 发现模型在特征空间中，对1、7、0的区分度极高，而3和5、4和9在二维投影中存在明显重叠，这为后续提升模型特征提取能力（如引入Attention）提供了明确方向
   - 服务器端matplotlib绘图规则：只存文件，绝不弹窗
 
@@ -87,3 +87,6 @@
     - 通过 `torch.max(out, 1)[1]` 获取预测类别
     - 散点图的颜色由 **预测类别** 决定 (`c=pred_y()`), 直观展示决策边界从混乱到清晰(Accuracy:0.5 -> 1.0)的过程
     - 服务器端适配: 禁用 `plt.ion()` 和 `plt.show()`, 改用 `plt.savefig()` 记录训练过程
+  ![训练过程1](./py_images/classification_step_48.png)
+  ![训练过程2](./py_images/classification_step_50.png)
+  ![训练过程3](./py_images/classification_step_106.png)
