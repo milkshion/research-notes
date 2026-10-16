@@ -111,3 +111,5 @@
     - 梯度是0, 那么`optimizer.step()` 更新权重时:
       $$w_{new} = w_{old} - \text{学习率} \times 0 = w_{old}$$
     - 权重再也无法被更新, 这就是"死亡 ReLU".
+
+  ![ReLU和Sigmoid的函数图像](./py_images/activation_functions.png)
