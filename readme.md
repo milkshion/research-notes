@@ -82,7 +82,7 @@
     - 结构: 全连接层`nn.Linear(2, 10)` -> 激活函数`F.relu()` -> 全连接层 `nn.Linear(10, 2)`
     - 输出: 因为有两个类别, 最后一层输出节点数是 2 (分别代表属于类别0和1的得分)
   - **损失函数**: `nn.CrossEntropyLoss()` (交叉熵损失). 它结合了 LogSoftmax 和 NLLLoss, 是分类任务的标配
-  - **优化器(原始代码)**: `torch.optim.SGD(negt.parameters(), lr=0.02)`. 随机梯度下降, 学习率 0.02, 20步左右即可完美收敛 (因为人造数据明显)
+  - **优化器(原始代码)**: `torch.optim.SGD(negt.parameters(), lr=0.02)`. 随机梯度下降, 学习率 0.02, 100步左右即可完美收敛 (因为人造数据明显)
   - **评估与可视化**:
     - 通过 `torch.max(out, 1)[1]` 获取预测类别
     - 散点图的颜色由 **预测类别** 决定 (`c=pred_y()`), 直观展示决策边界从混乱到清晰(Accuracy:0.5 -> 1.0)的过程
@@ -90,3 +90,10 @@
   ![训练过程1](./py_images/classification_step_48.png)
   ![训练过程2](./py_images/classification_step_50.png)
   ![训练过程3](./py_images/classification_step_106.png)
+
+  - **更换 AdamW 后的对比**:
+    - 加入了 权重衰减(防过拟合), 学习率调小了10倍以上.
+    - 相比于 SGD , AdamW初期下降速率要快得多.
+  ![4](./py_images/classification_AdamW_step_30.png)
+  ![5](./py_images/classification_AdamW_step_86.png)
+  ![6](./py_images/classification_AdamW_step_88.png)
