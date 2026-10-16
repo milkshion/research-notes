@@ -99,14 +99,14 @@
   ![训练过程6](./py_images/classification_step_AdamW_88.png)
 
 ### ReLU和Sigmoid (神经网络的激活函数)
-  - **Sigmoid的数学公式为**:  $\sigma(z) = \frac{1}{1+e^{-z}}$
+  - **Sigmoid的数学公式为**: $\sigma(z) = \frac{1}{1+e^{-z}}$
     - 特点: 输出在(0, 1)之间, 容易引发梯度消失.
     - Sigmoid函数图像两端十分平缓，其导数MAX只有0.25, 在反向传播时(`loss.backward()`), 梯度是一层层相乘的, 如果网络很深, 则会导致0.25变得无限接近于 0(梯度消失)
-  - **ReLU的数学公式为**:  $\text{RrLU}(x) = \max(0, x)$
+  - **ReLU的数学公式为**: $\text{RrLU}(x) = \max(0, x)$
     - 特点: 计算极快, 正半轴梯度恒为1, 但可能导致"死亡 ReLU"(Loss)
     - 当学习率太大, 在loss.backward()算完梯度后, optimizer.step()把权重 $w_i$ 更新得非常猛烈, 假设某个关键权重$w_i$原本为正, 突然被猛推了一脚, 变成了一个极大的**负数**. 
     - 导致 $z_i = w_i \cdot x + b_i$ 也变成一个负数, 此时 ReLU 函数直接输出 0 , 这个神经元对网络没有任何贡献, 输出恒为 0. 
-    - 反向传播时(`loss.backward()`), 根据链式法则, 梯度为:
+    - 反向传播时, 根据链式法则, 梯度为:
       $$\frac{\partial a_i}{\partial z_i} = 0$$
     - 梯度是0, 那么`optimizer.step()` 更新权重时:
       $$w_{new} = w_{old} - \text{学习率} \times 0 = w_{old}$$
